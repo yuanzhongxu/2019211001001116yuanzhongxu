@@ -20,6 +20,5 @@
     Date of Brith:<input type="text" name="birthDate"/><br/>
     <input type="submit" value="Register"/>
 </form>
-
 </body>
 </html>
