@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<a href="index.jsp">go to ecjtu</a>
+<a href="index.jsp">Go to ecjtu</a>
 <form method="post">
     Name:<input type="text" name="name"><br/>
     ID:<input type="text" name="id"><br/>
