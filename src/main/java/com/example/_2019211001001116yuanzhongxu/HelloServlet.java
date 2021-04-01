@@ -4,7 +4,15 @@ import java.io.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
+@WebServlet(name = "helloServlet", value = "/hello-servlet",
+initParams={
+        @WebInitParam(name="driver",value="com.microsoft.sqlserver.jdbc.SQLServerDriver"),
+        @WebInitParam(name="url",value="jdbc:sqlserver://localhost;databaseName=useryzx"),
+        @WebInitParam(name="username",value="sa"),
+        @WebInitParam(name="password",value="yzx.147369"),
+}
+)
+
 public class HelloServlet extends HttpServlet {
     private String message;
 

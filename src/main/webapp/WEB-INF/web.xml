@@ -3,6 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
     <servlet>
         <servlet-name>lifeCycleServlet</servlet-name>
         <servlet-class>com.yuanzhongxu.week3.demo.lifeCycleServlet</servlet-class>
@@ -11,7 +12,78 @@
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.yuanzhongxu.week3.demo.RegisterServlet</servlet-class>
+        <init-param>
+            <param-name>driver</param-name>
+            <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
+        </init-param>
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:sqlserver://localhost;databaseName=useryzx</param-value>
+        </init-param>
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>sa</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>yzx.147369</param-value>
+        </init-param>
     </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern><!--write this url in action-->
+
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ConfigDemoServlet</servlet-name>
+        <servlet-class>com.yuanzhongxu.week4.demo.ConfigDemoServlet</servlet-class>
+        <init-param>
+            <param-name>name</param-name>
+            <param-value>yuanzhongxu</param-value>
+        </init-param>
+        <init-param>
+            <param-name>studentid</param-name>
+            <param-value>2019211001001116</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConfigDemoServlet</servlet-name>
+        <url-pattern>/config</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>JDBCDemoServlet</servlet-name>
+        <servlet-class>com.yuanzhongxu.week4.demo.JDBCDemoServlet</servlet-class>
+        <!-- //        String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+//        //String url="jdbc:sqlserver://localhost;databaseName=useryzx";
+//        //String username="sa";
+//        //String password="yzx.147369";
+--><!-- set in web.xml as config parametar -for only one servlet ,JDBCDemoServlet-->
+        <init-param>
+            <param-name>driver</param-name>
+            <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
+        </init-param>
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:sqlserver://localhost;databaseName=useryzx</param-value>
+        </init-param>
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>sa</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>yzx.147369</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+        <!-- load and call init() when tomact start -->
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>JDBCDemoServlet</servlet-name>
+        <url-pattern>/jdbc</url-pattern>
+    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>lifeCycleServlet</servlet-name>
@@ -19,9 +91,6 @@
         <!--/life==LifeCycleServlet==com.yuanzhongxu.week3.demo.LifeCycleServlet-->
     </servlet-mapping>
     
-    <servlet-mapping>
-        <servlet-name>RegisterServlet</servlet-name>
-        <url-pattern>/register</url-pattern><!--write this url in action-->
-    </servlet-mapping>
+
     
 </web-app>
