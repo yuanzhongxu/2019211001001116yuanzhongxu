@@ -9,6 +9,22 @@
         <servlet-class>com.yuanzhongxu.week3.demo.lifeCycleServlet</servlet-class>
     </servlet>
     <!--automatic code-->
+    <context-param>
+        <param-name>driver</param-name>
+        <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>url</param-name>
+        <param-value>jdbc:sqlserver://localhost;databaseName=useryzx</param-value>
+    </context-param>
+    <context-param>
+        <param-name>username</param-name>
+        <param-value>sa</param-value>
+    </context-param>
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>yzx.147369</param-value>
+    </context-param>
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.yuanzhongxu.week3.demo.RegisterServlet</servlet-class>
@@ -60,29 +76,22 @@
 //        //String username="sa";
 //        //String password="yzx.147369";
 --><!-- set in web.xml as config parametar -for only one servlet ,JDBCDemoServlet-->
-        <init-param>
-            <param-name>driver</param-name>
-            <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
-        </init-param>
-        <init-param>
-            <param-name>url</param-name>
-            <param-value>jdbc:sqlserver://localhost;databaseName=useryzx</param-value>
-        </init-param>
-        <init-param>
-            <param-name>username</param-name>
-            <param-value>sa</param-value>
-        </init-param>
-        <init-param>
-            <param-name>password</param-name>
-            <param-value>yzx.147369</param-value>
-        </init-param>
+
         <load-on-startup>1</load-on-startup>
         <!-- load and call init() when tomact start -->
+    </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.yuanzhongxu.week5.demo.LoginServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>JDBCDemoServlet</servlet-name>
         <url-pattern>/jdbc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
