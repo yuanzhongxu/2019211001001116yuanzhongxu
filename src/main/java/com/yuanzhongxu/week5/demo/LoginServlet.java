@@ -52,12 +52,10 @@ public class LoginServlet extends HttpServlet {
 
                 {
                     out.println("LOGIN SUCCESS!!!");
-                    out.println("WELCOME BACK: "+Username+"!");
+                    out.println("WELCOME BACK: "+Username+"!!");
                 }
                 else
                 {
-
-
 
                     response.sendRedirect("login-fail.jsp");
                 }

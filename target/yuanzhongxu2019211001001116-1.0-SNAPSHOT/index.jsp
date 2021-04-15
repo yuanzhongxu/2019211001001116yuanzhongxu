@@ -19,6 +19,7 @@
 <br/>
 <a href="index.jsp">include-week5</a>
 <br/>
+
 <a href="login.jsp">Login-week5</a>
 <%--<form>--%>
 <%--    <span style="...">New User Registeration</span><br/><br/>--%>
@@ -31,4 +32,5 @@
 <%--    <span style="...">Date of birth(yyyy-mm-dd)</span><input type="date" pattern="yyyy-mm-dd" required="true" style="..."><br/><br/>--%>
 <%--    <input type="submit" value="register" style="...">--%>
 <%--</form>--%>
+
 <%@include file="footer.jsp"%>

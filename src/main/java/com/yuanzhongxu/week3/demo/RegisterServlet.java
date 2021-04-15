@@ -10,22 +10,22 @@ public class RegisterServlet extends HttpServlet {
     Connection con = null;
     @Override
     public void init() throws ServletException {
-        ServletConfig config = getServletConfig();
-        String driver = config.getInitParameter("driver");
-        String url = config.getInitParameter("url");
-        String username = config.getInitParameter("username");
-        String password = config.getInitParameter("password");
-
-        try {
-            Class.forName(driver);
-            con = DriverManager.getConnection(url, username, password);
-            System.out.println("连接成功");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
+//        ServletConfig config = getServletConfig();
+//        String driver = config.getInitParameter("driver");
+//        String url = config.getInitParameter("url");
+//        String username = config.getInitParameter("username");
+//        String password = config.getInitParameter("password");
+//
+//        try {
+//            Class.forName(driver);
+//            con = DriverManager.getConnection(url, username, password);
+//            System.out.println("连接成功");
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+        con= (Connection) getServletContext().getAttribute("con");
 
     }
 
@@ -65,7 +65,7 @@ public class RegisterServlet extends HttpServlet {
         }
 
 
-        String select = "select id,username,password,email,birthdate from yzx";
+        String select = "select id,username,password,email,gender,birthdate from yzx";
         try {
             PreparedStatement pr=con.prepareStatement(select);
             ResultSet re = pr.executeQuery();
@@ -94,17 +94,17 @@ public class RegisterServlet extends HttpServlet {
 //                        "<td>" + gender + "</td>\n " +
 //                        "<td>" + birthdate + "</td>\n" +
 //                        "</tr>");
-//            }
+//             }
 //            out.println("</table>");
 //            out.println("</body>"+"</head>"+"</html>");
-            request.setAttribute("name",re);
+            request.setAttribute("rsname",re);
             request.getRequestDispatcher("userList.jsp").forward(request,response);
             System.out.println("i am in RegisterServlet-->doPost--> after forward()");
             out.close();
             pr.close();
             con.close();
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+             throwables.printStackTrace();
         }
     }
 }
