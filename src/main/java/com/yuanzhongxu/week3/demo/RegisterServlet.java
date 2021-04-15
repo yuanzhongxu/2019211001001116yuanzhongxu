@@ -46,7 +46,7 @@ public class RegisterServlet extends HttpServlet {
 //        writer.println("<br>email:"+email);
 //        writer.println("<br>gender:"+gender);
 //        writer.println("<br>birth Date:"+birthDate);
-//        writer.close();
+//        writer.close();  
         String sql = "insert into yzx(username,password,email,gender,birthdate)"+"values(?,?,?,?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
