@@ -1,11 +1,13 @@
 package com.yuanzhongxu.week3.demo;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 
+@WebServlet(urlPatterns = {"/register"},loadOnStartup = 1)
 public class RegisterServlet extends HttpServlet {
     Connection con = null;
     @Override
@@ -30,7 +32,7 @@ public class RegisterServlet extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+doPost(request,response);
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,9 +48,10 @@ public class RegisterServlet extends HttpServlet {
 //        writer.println("<br>email:"+email);
 //        writer.println("<br>gender:"+gender);
 //        writer.println("<br>birth Date:"+birthDate);
-//        writer.close();  
-        String sql = "insert into yzx(username,password,email,gender,birthdate)"+"values(?,?,?,?,?)";
+//        writer.close();
         try {
+        String sql = "insert into yzx(username,password,email,gender,birthdate)"+"values(?,?,?,?,?)";
+
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1,Username);
             ps.setString(2,Password);
@@ -58,17 +61,15 @@ public class RegisterServlet extends HttpServlet {
             ps.executeUpdate();
             System.out.println("323");
             ps.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
 
 
-        String select = "select id,username,password,email,gender,birthdate from yzx";
-        try {
-            PreparedStatement pr=con.prepareStatement(select);
-            ResultSet re = pr.executeQuery();
-            //response.setContentType("text/html");
-            PrintWriter out= response.getWriter();
+
+//        String select = "select id,username,password,email,gender,birthdate from yzx";
+//        try {
+//            PreparedStatement pr=con.prepareStatement(select);
+//            ResultSet re = pr.executeQuery();
+//            //response.setContentType("text/html");
+//            PrintWriter out= response.getWriter();
 
 //            out.println("<html>");
 //            out.println("<head>");
@@ -95,11 +96,12 @@ public class RegisterServlet extends HttpServlet {
 //             }
 //            out.println("</table>");
 //            out.println("</body>"+"</head>"+"</html>");
-            request.setAttribute("rsname",re);
-            request.getRequestDispatcher("userList.jsp").forward(request,response);
-            System.out.println("i am in RegisterServlet-->doPost--> after forward()");
-            out.close();
-            pr.close();
+//            request.setAttribute("rsname",re);
+//            request.getRequestDispatcher("userList.jsp").forward(request,response);
+//            System.out.println("i am in RegisterServlet-->doPost--> after forward()");
+//            out.close();
+//            pr.close();
+            response.sendRedirect("login.jsp");
             con.close();
         } catch (SQLException throwables) {
              throwables.printStackTrace();

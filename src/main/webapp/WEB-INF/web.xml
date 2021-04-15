@@ -84,6 +84,14 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>com.yuanzhongxu.week5.demo.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>com.yuanzhongxu.week6.demo.SearchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>JDBCDemoServlet</servlet-name>
