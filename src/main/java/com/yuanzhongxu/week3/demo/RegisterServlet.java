@@ -65,37 +65,41 @@ public class RegisterServlet extends HttpServlet {
         }
 
 
-        String select = "select * from yzx";
+        String select = "select id,username,password,email,birthdate from yzx";
         try {
             PreparedStatement pr=con.prepareStatement(select);
             ResultSet re = pr.executeQuery();
-            response.setContentType("text/html");
+            //response.setContentType("text/html");
             PrintWriter out= response.getWriter();
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>select</title>");
-            out.println("<body>");
-            out.println("<table border=\"2\">");
-            out.println("<tr>\n" +
-                    "<td>id</td>\n" + "<td>username</td>\n" + "<td>password</td>\n" + "<td>email</td>\n" +
-                    "<td>gender</td>\n" +
-                    "<td>birthDate</td>\n" +
-                    "</tr>");
-            while (re.next()){
-                String id = re.getString(1);
-                String username = re.getString(2);
-                String password = re.getString(3);
-                String email = re.getString(4);
-                String gender =re.getString(5);
-                String birthdate =re.getString(6);
-                out.println("<tr>\n" +
-                        "<td>" + id + "</td>\n" + "<td>" + username + "</td>\n" + "<td>" + password + "</td>\n" + "<td>" + email + "</td>\n" +
-                        "<td>" + gender + "</td>\n " +
-                        "<td>" + birthdate + "</td>\n" +
-                        "</tr>");
-            }
-            out.println("</table>");
-            out.println("</body>"+"</head>"+"</html>");
+
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>select</title>");
+//            out.println("<body>");
+//            out.println("<table border=\"2\">");
+//            out.println("<tr>\n" +
+//                    "<td>id</td>\n" + "<td>username</td>\n" + "<td>password</td>\n" + "<td>email</td>\n" +
+//                    "<td>gender</td>\n" +
+//                    "<td>birthDate</td>\n" +
+//                    "</tr>");
+//            while (re.next()){
+//                String id = re.getString(1);
+//                String username = re.getString(2);
+//                String password = re.getString(3);
+//                String email = re.getString(4);
+//                String gender =re.getString(5);
+//                String birthdate =re.getString(6);
+//                out.println("<tr>\n" +
+//                        "<td>" + id + "</td>\n" + "<td>" + username + "</td>\n" + "<td>" + password + "</td>\n" + "<td>" + email + "</td>\n" +
+//                        "<td>" + gender + "</td>\n " +
+//                        "<td>" + birthdate + "</td>\n" +
+//                        "</tr>");
+//            }
+//            out.println("</table>");
+//            out.println("</body>"+"</head>"+"</html>");
+            request.setAttribute("name",re);
+            request.getRequestDispatcher("userList.jsp").forward(request,response);
+            System.out.println("i am in RegisterServlet-->doPost--> after forward()");
             out.close();
             pr.close();
             con.close();
