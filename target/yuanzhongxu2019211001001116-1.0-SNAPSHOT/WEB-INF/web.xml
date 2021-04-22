@@ -107,7 +107,9 @@
         <url-pattern>/life</url-pattern>
         <!--/life==LifeCycleServlet==com.yuanzhongxu.week3.demo.LifeCycleServlet-->
     </servlet-mapping>
-    
 
+    <welcome-file-list>
+        <welcome-file>home</welcome-file>
+    </welcome-file-list>
     
 </web-app>

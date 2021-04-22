@@ -1,5 +1,8 @@
 package com.yuanzhongxu.week5.demo;
 
+import com.yuanzhongxu.dao.UserDao;
+import com.yuanzhongxu.model.User;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -11,6 +14,7 @@ import java.sql.*;
 public class LoginServlet extends HttpServlet {
 
     Connection con = null;
+
     @Override
     public void init() throws ServletException {
 
@@ -18,7 +22,7 @@ public class LoginServlet extends HttpServlet {
         String url = getServletConfig().getServletContext().getInitParameter("url");
         String username = getServletConfig().getServletContext().getInitParameter("username");
         String password = getServletConfig().getServletContext().getInitParameter("password");
-        con=(Connection) getServletContext().getAttribute("con");
+        con = (Connection) getServletContext().getAttribute("con");
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, username, password);
@@ -30,47 +34,61 @@ public class LoginServlet extends HttpServlet {
         }
 
     }
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    doPost(request,response);
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//    doPost(request,response);
+        request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String Username = request.getParameter("username");
-        String Password = request.getParameter("password");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
 
 
-//        String sql="select username,password from yzx where 'username='+Username +'and password='+Password ";
-        String sql = "select username,password from yzx where username='"+Username+"' and password='"+Password+"'";
-        try{
-            PreparedStatement pr=con.prepareStatement(sql);
-            ResultSet re = pr.executeQuery();
-            PrintWriter out= response.getWriter();
-//                Username==re.getString("username")&&Password==re.getString("password")
-                if(re.next())
+        UserDao userDao=new UserDao();
+        try {
 
-                {
-                    request.setAttribute("id",re.getInt("id"));
-                    request.setAttribute("username",re.getInt("username"));
-                    request.setAttribute("password",re.getInt("password"));
-                    request.setAttribute("email",re.getInt("email"));
-                    request.setAttribute("gender",re.getInt("gender"));
-                    request.setAttribute("birthdate",re.getInt("birthdate"));
-//                    out.println("LOGIN SUCCESS!!!");
-//                    out.println("WELCOME BACK: "+Username+"!!");
-                    request.getRequestDispatcher("userInfo.jsp").forward(request,response);
-                }
-                else
-                {
-                    request.setAttribute("message","Username or Password Error!!!");
-                    //response.sendRedirect("login-fail.jsp");
-                    request.getRequestDispatcher("login.jsp").forward(request,response);
-                }
+            User user=userDao.findByUsernamePassword(con, username, password);
+            if(user!=null){
+                request.setAttribute("user",user);
+                request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
+            }else{
+                request.setAttribute("message", "Username or Password Error!!!");
 
-
-                }catch (SQLException throwables) {
+                request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request, response);
+            }
+        } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+
+
+//        String sql = "select username,password from yzx where username='" + username + "' and password='" + password + "'";
+//        try {
+//            PreparedStatement pr = con.prepareStatement(sql);
+//            ResultSet re = pr.executeQuery();
+//            PrintWriter out = response.getWriter();
+////                Username==re.getString("username")&&Password==re.getString("password")
+//            if (re.next()) {
+//                request.setAttribute("id", re.getInt("id"));
+//                request.setAttribute("username", re.getInt("username"));
+//                request.setAttribute("password", re.getInt("password"));
+//                request.setAttribute("email", re.getInt("email"));
+//                request.setAttribute("gender", re.getInt("gender"));
+//                request.setAttribute("birthdate", re.getInt("birthdate"));
+////                    out.println("LOGIN SUCCESS!!!");
+////                    out.println("WELCOME BACK: "+Username+"!!");
+//                request.getRequestDispatcher("userInfo.jsp").forward(request, response);
+//            } else {
+//                request.setAttribute("message", "Username or Password Error!!!");
+//                //response.sendRedirect("login-fail.jsp");
+//                request.getRequestDispatcher("login.jsp").forward(request, response);
+//            }
+//
+//
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
     }
 }
+
