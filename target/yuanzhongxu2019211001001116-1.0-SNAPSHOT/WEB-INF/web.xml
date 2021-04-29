@@ -68,18 +68,18 @@
         <servlet-name>ConfigDemoServlet</servlet-name>
         <url-pattern>/config</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>JDBCDemoServlet</servlet-name>
-        <servlet-class>com.yuanzhongxu.week4.demo.JDBCDemoServlet</servlet-class>
-        <!-- //        String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-//        //String url="jdbc:sqlserver://localhost;databaseName=useryzx";
-//        //String username="sa";
-//        //String password="yzx.147369";
---><!-- set in web.xml as config parametar -for only one servlet ,JDBCDemoServlet-->
+<!--    <servlet>-->
+<!--        <servlet-name>JDBCDemoServlet</servlet-name>-->
+<!--        <servlet-class>com.yuanzhongxu.week4.demo.JDBCDemoServlet</servlet-class>-->
+<!--        &lt;!&ndash; //        String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";-->
+<!--//        //String url="jdbc:sqlserver://localhost;databaseName=useryzx";-->
+<!--//        //String username="sa";-->
+<!--//        //String password="yzx.147369";-->
+<!--&ndash;&gt;&lt;!&ndash; set in web.xml as config parametar -for only one servlet ,JDBCDemoServlet&ndash;&gt;-->
 
-        <load-on-startup>1</load-on-startup>
-        <!-- load and call init() when tomact start -->
-    </servlet>
+<!--        <load-on-startup>1</load-on-startup>-->
+<!--        &lt;!&ndash; load and call init() when tomact start &ndash;&gt;-->
+<!--    </servlet>-->
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>com.yuanzhongxu.week5.demo.LoginServlet</servlet-class>
@@ -93,10 +93,10 @@
         <url-pattern>/search</url-pattern>
     </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>JDBCDemoServlet</servlet-name>
-        <url-pattern>/jdbc</url-pattern>
-    </servlet-mapping>
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>JDBCDemoServlet</servlet-name>-->
+<!--        <url-pattern>/jdbc</url-pattern>-->
+<!--    </servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
