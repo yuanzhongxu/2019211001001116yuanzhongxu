@@ -55,7 +55,7 @@ public class ProductDao implements  IProductDao{
     public List<Product> findByPrice(double minPrice, double maxPrice, Connection con) throws SQLException {
         return null;
     }
-
+ 
     @Override
     public List<Product> findAll(Connection con) throws SQLException {
 
