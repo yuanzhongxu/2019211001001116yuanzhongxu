@@ -36,12 +36,12 @@ public class ProductDetailsServlet extends HttpServlet {
                 request.setAttribute("p",product);
             }
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            throwables.printStackTrace(); 
         }
         String path="/WEB-INF/views/productDetails.jsp";
         request.getRequestDispatcher(path).forward(request,response);
     }
-  
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
