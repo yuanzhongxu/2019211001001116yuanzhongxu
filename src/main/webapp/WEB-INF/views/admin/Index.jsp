@@ -2,7 +2,7 @@
 <%--String path = request.getContextPath();--%>
 <%--String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";--%>
 <%--%>--%>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <%@include file="../header.jsp"%>
 <section id="slider"><!--slider-->
     <div class="container">
@@ -26,7 +26,7 @@
                             <div class="col-sm-6">
                                 <img src="<%=basePath%>images/home/girl1.jpg" class="girl img-responsive" alt="" />
                                 <img src="<%=basePath%>images/home/pricing.png"  class="pricing" alt="" />
-                            </div> 
+                            </div>
                         </div>
                         <div class="item">
                             <div class="col-sm-6">
