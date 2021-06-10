@@ -1,47 +1,71 @@
-
+<%--<%--%>
+<%--String path = request.getContextPath();--%>
+<%--String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";--%>
+<%--%>--%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="../header.jsp"%>
-<div class="container">
-	    	<div class="row">    		
-	    		<div class="col-sm-12">    			   			
-					<h2 class="title text-center">Administrator <strong>Home</strong></h2>    			    				    				
-					</div>			 		
-<div class="col-sm-8"  style="left: 25%">
-						<div class="col-sm-3" style="height: 350px;">
-							<div class="video-gallery text-center" >
-								<a href="<%=basePath%>admin/productList">
-									<div class="iframe-img">
-										<img src="<%=basePath%>images/home/productmgmt.png" alt="" />
-									</div>
-									
-								</a>
-								<h2>Product Management</h2>
-							</div>
-						</div>
-						
-						<div class="col-sm-3">
-							<div class="video-gallery text-center">
-								<a href="<%=basePath%>admin/orderList">
-									<div class="iframe-img">
-										<img src="<%=basePath%>images/home/ordermgmt.png" alt="" />
-									</div>
-									
-								</a>
-								<h2>Order Management</h2>
-							</div>
-						</div>
-						
-						<div class="col-sm-3">
-							<div class="video-gallery text-center">
-								<a href="<%=basePath%>admin/userList">
-									<div class="iframe-img">
-										<img src="<%=basePath%>images/home/usermgmt.png" alt="" />
-									</div>
-									</a>
-								<h2>User Management</h2>
-							</div>
-						</div>
-					</div>
-					</div></div>
-<div style="height: 194px; "></div>
+<section id="slider"><!--slider-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#slider-carousel" data-slide-to="1"></li>
+                        <li data-target="#slider-carousel" data-slide-to="2"></li>
+                    </ol>
 
- <%@include file="../footer.jsp" %>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="col-sm-6">
+                                <h1><span>E</span>-SHOPPER</h1>
+                                <h2>My E-Commerce Website</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                <button type="button" class="btn btn-default get">Get it now</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="<%=basePath%>images/home/girl1.jpg" class="girl img-responsive" alt="" />
+                                <img src="<%=basePath%>images/home/pricing.png"  class="pricing" alt="" />
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-sm-6">
+                                <h1><span>E</span>-SHOPPER</h1>
+                                <h2>100% Responsive Design</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                <button type="button" class="btn btn-default get">Get it now</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="<%=basePath%>images/home/girl2.jpg" class="girl img-responsive" alt="" />
+                                <img src="<%=basePath%>images/home/pricing.png"  class="pricing" alt="" />
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="col-sm-6">
+                                <h1><span>E</span>-SHOPPER</h1>
+                                <h2>My Ecommerce Website</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                <button type="button" class="btn btn-default get">Get it now</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="<%=basePath%>images/home/girl3.jpg" class="girl img-responsive" alt="" />
+                                <img src="<%=basePath%>images/home/pricing.png" class="pricing" alt="" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section><!--/slider-->
+<%@include file="../footer.jsp"%>

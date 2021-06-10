@@ -1,3 +1,4 @@
+
 <%@include file="/header.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
@@ -37,11 +38,11 @@
 					</thead>
 					<tbody>
 					<!-- loop_start -->
-					<sql:setDataSource var="myDs" driver="com.mysql.cj.jdbc.Driver"
-					url="jdbc:mysql://localhost:3306/productdb" user="root" password="root"/>
+					<sql:setDataSource var="myDs" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+					url="jdbc:sqlserver://localhost;databaseName=useryzx" user="sa" password="yzx.147369"/>
 
 					<sql:query var="allUser" dataSource="${myDs}">
-						select * from usertable;
+						select * from useryzx;
 					</sql:query>
 
 					<c:forEach var="row" items="${allUser.rows}">
@@ -82,4 +83,4 @@
 		</div>
 		</div>
 		</section>
- <%@include file="../footer.jsp" %>
+ <%@include file="/footer.jsp" %>

@@ -1,4 +1,4 @@
-<%@include file="header.jsp" %>
+<%@include file="/header.jsp" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	<section>
 		<div class="container">
@@ -123,5 +123,5 @@
 			</div>
 	</section>
 	<br/><br/>
-<%@include file="footer.jsp" %>
+<%@include file="/footer.jsp" %>
 	
