@@ -56,7 +56,7 @@
     <%-- todo 5 : use c:forEach to print "one","three","five","seven","nine"  of array --%>
 <%
 List<Person> personList=new ArrayList<Person>();
-personList.add(new Person("Tom",new Dog("Tommy"))); 
+personList.add(new Person("Tom",new Dog("Tommy")));
 personList.add(new Person("Sam",new Dog("Sammy")));
 personList.add(new Person("Mike",new Dog("kitty")));
 // todo 6 : add a new person into PersonList - person name and dog name

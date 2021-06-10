@@ -1,3 +1,6 @@
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+<%--<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>--%>
+<%--<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>--%>
 
 <%@include file="header.jsp"%>
 	<section id="slider"><!--slider-->
@@ -20,7 +23,8 @@
 									<button type="button" class="btn btn-default get">Get it now</button>
 								</div>
 								<div class="col-sm-6">
-									<img src="<%=basePath%>images/home/girl1.jpg" class="girl img-responsive" alt="" />
+									<img src="<%=basePath%><%!private boolean basePath;
+%>images/home/girl1.jpg" class="girl img-responsive" alt="" />
 									<img src="<%=basePath%>images/home/pricing.png"  class="pricing" alt="" />
 								</div>
 							</div>
