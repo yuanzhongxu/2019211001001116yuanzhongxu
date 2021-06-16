@@ -9,7 +9,7 @@ public class YuanzhongxuFilter implements Filter {
     public void init(FilterConfig config) throws ServletException {
     }
 
-    public void destroy() {
+    public void destroy() { 
     }
 
     @Override
