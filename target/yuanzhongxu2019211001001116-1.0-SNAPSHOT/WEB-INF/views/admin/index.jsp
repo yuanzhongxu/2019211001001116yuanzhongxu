@@ -2,7 +2,7 @@
 <%--String path = request.getContextPath();--%>
 <%--String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";--%>
 <%--%>--%>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <%@include file="../header.jsp"%>
 <section id="slider"><!--slider-->
     <div class="container">
